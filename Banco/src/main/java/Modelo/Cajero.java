@@ -12,4 +12,10 @@ package Modelo;
 public class Cajero {
     private String nombre;
     private String direccion;
+
+    public Cajero(String nombre, String direccion) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }
+    
 }

@@ -14,13 +14,19 @@ public class Tarjeta {
     private String nombre;
     private int cvv;
     private String clave;
-    private Cuenta[] ciudad;
+    private Cuenta[] cuentas;
+    private int indice;
 
-    public Tarjeta(String numero, String nombre, int cvv) {
+    public Tarjeta(String numero, String nombre, int cvv , int numCuentas) {
         this.numero = numero;
         this.nombre = nombre;
         this.cvv = cvv;
-        
+        this.cuentas = new Cuenta[numCuentas]; 
+        this.indice = 0;
+    }
+
+    public String getNumero() {
+        return numero;
     }
     
 }

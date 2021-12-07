@@ -9,4 +9,11 @@ package Modelo;
 public class Operacion {
     private String fecha;
     private String monto;
+
+    public Operacion(String fecha, String monto) {
+        this.fecha = fecha;
+        this.monto = monto;
+    }
+    
+    
 }
