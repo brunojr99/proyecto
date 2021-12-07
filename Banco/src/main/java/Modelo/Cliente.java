@@ -13,7 +13,7 @@ public class Cliente {
     private String nombre;
     private String documento;
     private String direccion;
-    private Cuenta[] cuentas;
+    
     public Cliente(String nombre, String documento, String direccion) {
         this.nombre = nombre;
         this.documento = documento;
@@ -44,13 +44,7 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public Cuenta[] getCuentas() {
-        return cuentas;
-    }
-
-    public void setCuentas(Cuenta[] cuentas) {
-        this.cuentas = cuentas;
-    }
+   
     public boolean depositar(float monto,Cuenta cuenta){
         boolean temporal = cuenta.depositar(monto);
         return temporal;        
@@ -67,7 +61,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "nombre=" + nombre + ", documento=" + documento + ", direccion=" + direccion + ", cuentas=" + cuentas + '}';
+        return "Cliente{" + "nombre=" + nombre + ", documento=" + documento + ", direccion=" + direccion +  '}';
     }
     
     

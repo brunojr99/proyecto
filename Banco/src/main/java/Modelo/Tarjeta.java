@@ -15,14 +15,13 @@ public class Tarjeta {
     private int cvv;
     private String clave;
     private Cuenta[] cuentas;
-    private int indice;
+   
 
-    public Tarjeta(String numero, String nombre, int cvv , int numCuentas) {
+    public Tarjeta(String numero, String nombre, int cvv ) {
         this.numero = numero;
         this.nombre = nombre;
         this.cvv = cvv;
-        this.cuentas = new Cuenta[numCuentas]; 
-        this.indice = 0;
+        
     }
 
     public String getNumero() {
@@ -65,13 +64,7 @@ public class Tarjeta {
         this.cuentas = cuentas;
     }
 
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
-    }
+    
     public boolean validar(String clave){
         if(clave.equals(this.clave)){
                return true;
@@ -94,8 +87,9 @@ public class Tarjeta {
 
     @Override
     public String toString() {
-        return "Tarjeta{" + "numero=" + numero + ", nombre=" + nombre + ", cvv=" + cvv + ", clave=" + clave + ", cuentas=" + cuentas + ", indice=" + indice + '}';
+        return "Tarjeta{" + "numero=" + numero + ", nombre=" + nombre + ", cvv=" + cvv + '}';
     }
-    
+
+   
     
 }

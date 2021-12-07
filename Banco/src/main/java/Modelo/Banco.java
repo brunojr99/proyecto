@@ -77,7 +77,9 @@ public class Banco {
 
     @Override
     public String toString() {
-        return "Banco{" + "RUC=" + RUC + ", nombre=" + nombre + ", direccion=" + direccion + ", cuentas=" + cuentas + '}';
+        return "Banco{" + "RUC=" + RUC + ", nombre=" + nombre + ", direccion=" + direccion +'}';
     }
+
+    
     
 }
