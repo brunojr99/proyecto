@@ -31,6 +31,11 @@ public class TipoOperacion {
        return this.nombre;
       
    }
+
+    @Override
+    public String toString() {
+        return "TipoOperacion{" + "nombre=" + nombre + ", codigo=" + codigo + '}';
+    }
    
     
 }

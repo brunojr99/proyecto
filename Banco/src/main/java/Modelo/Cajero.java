@@ -50,4 +50,10 @@ public class Cajero {
         
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Cajero{" + "nombre=" + nombre + ", direccion=" + direccion + '}';
+    }
+    
 }

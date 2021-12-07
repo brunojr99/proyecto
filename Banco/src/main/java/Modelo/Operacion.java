@@ -33,9 +33,14 @@ public class Operacion {
         this.monto = monto;
     }
     
-    public boolean registrar(){
+    public boolean registrar(Date fecha,float monto){
             return true;
         
+    }
+
+    @Override
+    public String toString() {
+        return "Operacion{" + "fecha=" + fecha + ", monto=" + monto + '}';
     }
     
 }

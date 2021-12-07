@@ -64,6 +64,11 @@ public class Cliente {
         boolean temporal = cuenta.transferir(monto);
         return temporal;        
     }
+
+    @Override
+    public String toString() {
+        return "Cliente{" + "nombre=" + nombre + ", documento=" + documento + ", direccion=" + direccion + ", cuentas=" + cuentas + '}';
+    }
     
     
 }

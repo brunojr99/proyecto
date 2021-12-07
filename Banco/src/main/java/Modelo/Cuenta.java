@@ -80,4 +80,10 @@ public class Cuenta {
             }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Cuenta{" + "numero=" + numero + ", saldo=" + saldo + ", fechaApertura=" + fechaApertura + ", cliente=" + cliente + ", tarjeta=" + tarjeta + '}';
+    }
+    
 }

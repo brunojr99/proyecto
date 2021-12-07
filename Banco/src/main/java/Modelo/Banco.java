@@ -74,4 +74,10 @@ public class Banco {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "Banco{" + "RUC=" + RUC + ", nombre=" + nombre + ", direccion=" + direccion + ", cuentas=" + cuentas + '}';
+    }
+    
 }

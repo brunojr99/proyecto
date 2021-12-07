@@ -91,6 +91,11 @@ public class Tarjeta {
         boolean temporal = cuenta.transferir(monto);
         return temporal;        
     }
+
+    @Override
+    public String toString() {
+        return "Tarjeta{" + "numero=" + numero + ", nombre=" + nombre + ", cvv=" + cvv + ", clave=" + clave + ", cuentas=" + cuentas + ", indice=" + indice + '}';
+    }
     
     
 }
