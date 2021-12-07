@@ -22,11 +22,23 @@ public class App {
         Date date = new Date(System.currentTimeMillis());
         Cliente cliente1 = new Cliente("Bruno Jimenez","76353215","Calle Lerida S/N");
         Tarjeta tarjeta1= new Tarjeta("12354657",cliente1.getNombre(),478);
-        Cuenta cuenta1 = new Cuenta("1255878561213",date);
+        Cuenta cuenta1 = new Cuenta("1255878561213",date,200);
         cuenta1.setCliente(cliente1);
         cuenta1.setTarjeta(tarjeta1);
         System.out.println(banco1.toString());
         System.out.println(cuenta1.toString());
         System.out.println(cliente1.toString());
+        cuenta1.depositar(15);
+        System.out.println(cuenta1.toString());
+        Cliente cliente2 = new Cliente("Renzo Jimenez","76456115","Calle Lerida S/N");
+        Tarjeta tarjeta2= new Tarjeta("123456657",cliente2.getNombre(),555);
+        Cuenta cuenta2 = new Cuenta("12558789412213",date,1000);
+        cuenta2.setCliente(cliente2);
+        cuenta2.setTarjeta(tarjeta2);
+        
+        System.out.println(cuenta2.toString());
+        System.out.println(cliente2.toString());
+        cuenta2.retirar(50);
+        System.out.println(cuenta2.toString());
 }
 }

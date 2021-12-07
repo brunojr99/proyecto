@@ -14,10 +14,10 @@ public class Cuenta {
     private Cliente cliente;
     private Tarjeta tarjeta;
 
-    public Cuenta(String numero, Date fechaApertura) {
+    public Cuenta(String numero, Date fechaApertura,float saldo) {
         this.numero = numero;
         this.fechaApertura = fechaApertura;
-        
+        this.saldo = saldo;
     }
 
     public float getSaldo() {
@@ -58,7 +58,7 @@ public class Cuenta {
         return true;
     }
     public boolean retirar(float monto){
-        if(this.saldo - monto < 0){
+        if(this.saldo - monto >= 0){
          this.saldo = this.saldo - monto;
          return true;
          }
