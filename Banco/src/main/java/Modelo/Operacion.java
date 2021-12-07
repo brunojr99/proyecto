@@ -5,15 +5,37 @@
  */
 package Modelo;
 
+import java.util.Date;
+
 
 public class Operacion {
-    private String fecha;
+    private Date fecha;
     private String monto;
 
-    public Operacion(String fecha, String monto) {
+    public Operacion(Date fecha, String monto) {
         this.fecha = fecha;
         this.monto = monto;
     }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getMonto() {
+        return monto;
+    }
+
+    public void setMonto(String monto) {
+        this.monto = monto;
+    }
     
+    public boolean registrar(){
+            return true;
+        
+    }
     
 }

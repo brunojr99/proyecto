@@ -27,6 +27,10 @@ public class TipoOperacion {
         this.codigo = codigo;
     }
 
+   public String getTipo(){
+       return this.nombre;
+      
+   }
    
     
 }
