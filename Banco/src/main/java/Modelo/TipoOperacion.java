@@ -15,11 +15,18 @@ public class TipoOperacion {
         return nombre;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public String getCodigo() {
         return codigo;
     }
-    public String getTipo(int a){
-        
-        
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
+
+   
+    
 }

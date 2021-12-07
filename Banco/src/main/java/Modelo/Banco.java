@@ -52,12 +52,26 @@ public class Banco {
         return true;
     }
     public Cuenta[] getCuentasporCliente(Cliente cliente){
-       Cuenta[] temporal = new Cuenta[15]; 
-       
-       return cliente.getCuentas();
+       Cuenta[] temporal = new Cuenta[15];
+       int contador=0;
+       for(int i=0;i<this.cuentas.length;i++){
+           if(this.cuentas[i].getCliente().getDocumento().equals(cliente.getDocumento())){
+               temporal[contador]=this.cuentas[i];
+               contador++;
+               
+           }
+        }
+       return temporal;
     }
     public boolean validarTarjeta(String numTarjeta,String documento,String clave){
         
+        for(int i=0;i<this.cuentas.length;i++){
+           if(this.cuentas[i].getTarjeta().getNumero().equals(numTarjeta)&&
+                   this.cuentas[i].getCliente().getDocumento().equals(documento)
+                   &&this.cuentas[i].getTarjeta().getClave().equals(clave)){
+               return true;               
+           }
+        }
         return false;
     }
 }

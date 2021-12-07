@@ -51,8 +51,19 @@ public class Cliente {
     public void setCuentas(Cuenta[] cuentas) {
         this.cuentas = cuentas;
     }
+    public boolean depositar(float monto,Cuenta cuenta){
+        boolean temporal = cuenta.depositar(monto);
+        return temporal;        
+    }
     
-    
+    public boolean retirar(float monto,Cuenta cuenta){
+        boolean temporal = cuenta.retirar(monto);
+        return temporal;        
+    }
+    public boolean transferir(float monto,Cuenta cuenta){
+        boolean temporal = cuenta.transferir(monto);
+        return temporal;        
+    }
     
     
 }
