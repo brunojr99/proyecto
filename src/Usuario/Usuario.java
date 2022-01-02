@@ -6,15 +6,16 @@ public class Usuario {
     private String apellido;
     private String documento;
     private String contraseña;
-    private String usuario;
+    String usuario;
     
     
 
-    public Usuario(String nombre, String apellido, String documento, String contraseña) {
+    public Usuario(String nombre, String apellido, String documento, String contraseña, String usuario) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
         this.contraseña = contraseña;
+        this.usuario = usuario;
     }
 
     public Usuario(String contraseña, String usuario) {

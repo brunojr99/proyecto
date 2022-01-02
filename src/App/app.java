@@ -1,7 +1,7 @@
 
 package App;
 
-import Controlador.controlador;
+import Controlador.controladorRegis;
 import Usuario.ArregloCliente;
 import Usuario.cliente;
 import formulario.UsuRegis;
@@ -13,7 +13,7 @@ public class app {
         UsuRegis usuregis = new UsuRegis();
         arregloCliente = new ArregloCliente();
         
-        controlador Controlado = new controlador(arregloCliente, usuregis);
+        controladorRegis Controlado = new controladorRegis(arregloCliente, usuregis);
         
         Controlado.iniciar();
     }

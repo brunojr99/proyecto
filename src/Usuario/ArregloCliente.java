@@ -6,31 +6,57 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class ArregloCliente {
-    private Usuario arregloU[];
-    private Usuario arregloU2[];
-    private int indice;
+    private cliente arregloU[];
+    private cliente arregloU2[];
+    private int indice = 0;
     
     public ArregloCliente() {
-        this.indice = 0;
-        this.arregloU = new Usuario[controladorU.maxUsuario];
         
+        this.arregloU = new cliente[controladorU.maxUsuario];
+        this.indice = indice;
+    }
+    public ArregloCliente(int tamaño) {
+        this.indice = 0;
+        this.arregloU = new cliente[tamaño];
     }
     
-    public boolean UsuRegistrado(String documento){//Ver si un usuario ya esta registrado antes de crear otro
+    
+    public boolean VerificaLogeo(String usuario, String contraseña){
         boolean result = false;
-        for(int i=0; i<this.indice;i++){
-            if(this.arregloU[i].getDocumento().equalsIgnoreCase(documento)){//revisa si el numero de doc enviado es el mismo o no
-                result=true;
-                break;
+        for(int i=0;i<this.indice;i++){
+            if(this.arregloU[i].getUsuario().equalsIgnoreCase(usuario)){
+                if(this.arregloU[i].getContraseña().equalsIgnoreCase(contraseña)){
+                    result = true;
+                }
+                
             }
+            
         }
-        
         return result;
     }
     
-    public boolean agregar(Usuario usuario){
+    public boolean UsuValido(String documento, String contraseña, String confirm){//Ver si un usuario ya esta registrado antes de crear otro
         boolean result = false;
-        if(!UsuRegistrado(usuario.getDocumento())){//Si es true va a agregar
+        for(int i=0; i<this.indice;i++){
+            
+            if(this.arregloU[i].getDocumento().equalsIgnoreCase(documento)){//revisa si el numero de doc enviado es el mismo o no
+                result=true;
+                    break;
+            }
+            
+        
+        }
+        if(contraseña == confirm){
+            result=true;
+                    
+        }
+        return result;
+    }
+    
+    
+    public boolean agregar(cliente usuario){
+        boolean result = false;
+        if(!UsuValido(usuario.getDocumento(),usuario.getContraseña(), usuario.getConfirmarcontraseña())){//Si es true va a agregar
             if(estaLleno()){//Si esta lleno lo agrega
                crecerArreglo(); 
             }
@@ -41,7 +67,7 @@ public class ArregloCliente {
         return result;
     }
     
-    public boolean eliminarUsuario(Usuario usuario){
+    public boolean eliminarUsuario(cliente usuario){
         boolean result = false;
         
         
@@ -49,20 +75,15 @@ public class ArregloCliente {
         return result;
     }
     
-    public Usuario getUsuario(String documento){
-        Usuario result = null;
-        
-        
-        return result;
-    }
+    
     
     private void crecerArreglo(){//hara que el arreglo cresca
         if(estaLleno()==true){
-            arregloU2 = new Usuario[controladorU.maxUsuario];
+            arregloU2 = new cliente[controladorU.maxUsuario];
             for(int i=0;i<controladorU.maxUsuario;i++){
                 arregloU2[i] = arregloU[i];
             }
-            arregloU = new Usuario[controladorU.maxUsuario+1];
+            arregloU = new cliente[controladorU.maxUsuario+1];
             for(int i=0;i<controladorU.maxUsuario-1;i++){
                 arregloU[i]=arregloU2[i];
             }
@@ -86,16 +107,16 @@ public class ArregloCliente {
         return result;
     }
     
-    public void ordenarPorCorreo(){
+    public void ordenarPorCorreo(){//Para que el Admin pueda ordenar a los Usuarios por correo
         Arrays.sort(arregloU);
         
     }
     
-    public void ordenarPorApellido(){
+    public void ordenarPorApellido(){//Para que el Admin pueda ordenar a los Usuarios por Apellido
         Arrays.sort(arregloU);
     }
     
-    public void ordenarPorDocumento(){
+    public void ordenarPorDocumento(){//Para que el Admin pueda ordenar a los Usuarios por Doc
         Arrays.sort(arregloU);
     }
 
@@ -108,6 +129,11 @@ public class ArregloCliente {
         
         return result;
     }
+
+    
+
+    
+
     
     
 }

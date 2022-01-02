@@ -16,7 +16,8 @@ public class ListaUsu extends javax.swing.JFrame {
      */
     public ListaUsu() {
         initComponents();
-        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Lista de seres inferiores");
     }
 
     /**

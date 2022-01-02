@@ -23,7 +23,8 @@ ArregloCliente arreglocliente = new ArregloCliente();
     public UsuRegis() {
         
         initComponents();
-        this.setLocationRelativeTo(this);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Registro de usuario");
     }
 
     /**
@@ -42,21 +43,21 @@ ArregloCliente arreglocliente = new ArregloCliente();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txtApellido = new javax.swing.JTextField();
         txtNumCel = new javax.swing.JTextField();
         txtCorreo = new javax.swing.JTextField();
         txtDoc = new javax.swing.JTextField();
-        btnSubir = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btnRegistrar = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        pswContraseña = new javax.swing.JPasswordField();
-        pswConfirmaContraseña = new javax.swing.JPasswordField();
         btnImprimir = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        txtContraseña = new javax.swing.JTextField();
+        txtConfirmar = new javax.swing.JTextField();
         lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,74 +65,62 @@ ArregloCliente arreglocliente = new ArregloCliente();
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel1.setText("Nombre");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel2.setText("Apellido");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 111, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, -1, -1));
 
         txtNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 77, 93, -1));
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 93, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3.setText("Documento");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 137, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel4.setText("Contraseña");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 254, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel5.setText("Numero de Celular");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 163, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel6.setText("Correo");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 194, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jLabel7.setText("Carnet de vacunacion");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(78, 221, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, -1));
 
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 108, 93, -1));
+        getContentPane().add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 93, -1));
 
         txtNumCel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNumCelActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNumCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 160, 93, -1));
+        getContentPane().add(txtNumCel, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 93, -1));
 
         txtCorreo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCorreoActionPerformed(evt);
             }
         });
-        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 191, 93, -1));
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 250, 93, -1));
 
         txtDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDocActionPerformed(evt);
             }
         });
-        getContentPane().add(txtDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 134, 93, -1));
-
-        btnSubir.setText("Subir imagen");
-        btnSubir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSubir, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 217, -1, -1));
+        getContentPane().add(txtDoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 93, -1));
 
         btnVolver.setText("volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -181,21 +170,7 @@ ArregloCliente arreglocliente = new ArregloCliente();
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel8.setText("Confirme la contraseña");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 289, -1, -1));
-
-        pswContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pswContraseñaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(pswContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 251, 93, -1));
-
-        pswConfirmaContraseña.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pswConfirmaContraseñaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(pswConfirmaContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 289, 93, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
         btnImprimir.setText("Imprimir");
         btnImprimir.addActionListener(new java.awt.event.ActionListener() {
@@ -203,7 +178,14 @@ ArregloCliente arreglocliente = new ArregloCliente();
                 btnImprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(175, 315, -1, -1));
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jLabel10.setText("Usuario");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 90, -1));
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 90, -1));
+        getContentPane().add(txtConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, -1));
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Kirbyfeli.jpg"))); // NOI18N
         getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 0, 520, 390));
@@ -226,50 +208,39 @@ ArregloCliente arreglocliente = new ArregloCliente();
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
-    private void btnSubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubirActionPerformed
-        SubirImagen subirimagen = new SubirImagen();
-        subirimagen.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnSubirActionPerformed
-
-    private void pswContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswContraseñaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pswContraseñaActionPerformed
-
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         
         
         
-        if(!arreglocliente.UsuRegistrado(txtDoc.toString())){
+        if(!arreglocliente.UsuValido(txtDoc.toString(), txtContraseña.toString(),txtConfirmar.toString())){
                     cliente Cliente;
                     Cliente = new cliente(txtNumCel.getText(), 
                             txtCorreo.getText()
                             ,txtNombre.getText()
                             ,txtApellido.getText(), 
                             txtDoc.getText(), 
-                            pswContraseña.getToolTipText(),
-                            pswConfirmaContraseña.getToolTipText());
+                            txtContraseña.getText(),
+                            txtConfirmar.getText(),
+                            txtUsuario.getText()
+                            );
                     arreglocliente.agregar(Cliente);
+                    JOptionPane.showMessageDialog(this,"Doc registrado exitosamente") ;
                     
                 }else{
-                    JOptionPane.showMessageDialog(rootPane, "Documento Registrado") ;
+                    JOptionPane.showMessageDialog(this,"Doc no valido") ;
+                    
                 }
         this.txtNombre.setText("");
         this.txtApellido.setText("");
         this.txtCorreo.setText("");
         this.txtDoc.setText("");
         this.txtNumCel.setText("");
-        this.pswContraseña.setText("");
-        this.pswConfirmaContraseña.setText("");
-        
+        this.txtContraseña.setText("");
+        this.txtConfirmar.setText("");
+        this.txtUsuario.setText("");
         
         
     }//GEN-LAST:event_btnRegistrarActionPerformed
-
-    private void pswConfirmaContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pswConfirmaContraseñaActionPerformed
-        
-        
-    }//GEN-LAST:event_pswConfirmaContraseñaActionPerformed
 
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
@@ -300,61 +271,31 @@ ArregloCliente arreglocliente = new ArregloCliente();
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UsuRegis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UsuRegis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UsuRegis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UsuRegis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UsuRegis().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnImprimir;
     public javax.swing.JButton btnRegistrar;
     public javax.swing.JButton btnSalir;
-    public javax.swing.JButton btnSubir;
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblImagen;
-    public javax.swing.JPasswordField pswConfirmaContraseña;
-    public javax.swing.JPasswordField pswContraseña;
+    public javax.swing.JLabel lblImagen;
     public javax.swing.JTextField txtApellido;
+    public javax.swing.JTextField txtConfirmar;
+    public javax.swing.JTextField txtContraseña;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDoc;
     public javax.swing.JTextField txtNombre;
     public javax.swing.JTextField txtNumCel;
+    public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

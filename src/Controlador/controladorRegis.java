@@ -9,11 +9,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
-public class controlador {
+public class controladorRegis {
     private ArregloCliente modelo;
     private UsuRegis vistaRegis;
 
-    public controlador(ArregloCliente modelo, UsuRegis vistaRegis) {
+    
+    public controladorRegis(ArregloCliente modelo, UsuRegis vistaRegis) {
         this.modelo = modelo;
         this.vistaRegis = vistaRegis;
         
@@ -36,19 +37,21 @@ public class controlador {
         this.vistaRegis.btnRegistrar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!modelo.UsuRegistrado(vistaRegis.txtDoc.toString())){
+                if(!modelo.UsuValido(vistaRegis.txtDoc.toString(), vistaRegis.txtContraseña.toString(),vistaRegis.txtConfirmar.toString())){
                     cliente Cliente;
                     Cliente = new cliente(vistaRegis.txtNumCel.getText(), 
                             vistaRegis.txtCorreo.getText()
                             ,vistaRegis.txtNombre.getText()
                             ,vistaRegis.txtApellido.getText(), 
                             vistaRegis.txtDoc.getText(), 
-                            vistaRegis.pswContraseña.getToolTipText(),
-                            vistaRegis.pswConfirmaContraseña.getToolTipText());
+                            vistaRegis.txtContraseña.getText(),
+                            vistaRegis.txtConfirmar.getText(),
+                            vistaRegis.txtUsuario.getText());
                     modelo.agregar(Cliente);
                     limpiar();
+                    JOptionPane.showMessageDialog(vistaRegis, "Documento Registrado exitosamente");
                 }else{
-                    JOptionPane.showMessageDialog(vistaRegis, "Documento Registrado");
+                    JOptionPane.showMessageDialog(vistaRegis, "Documento Registrado previamente pipipipi");
                 }
             }
             
@@ -73,13 +76,14 @@ public class controlador {
     }
     
     private void limpiar(){
-                this.vistaRegis.txtApellido.setText(" ");
-                this.vistaRegis.txtCorreo.setText(" ");
-                this.vistaRegis.txtDoc.setText(" ");
-                this.vistaRegis.txtNombre.setText(" ");
-                this.vistaRegis.txtNumCel.setText(" ");
-                this.vistaRegis.pswContraseña.setText("");
-                this.vistaRegis.pswConfirmaContraseña.setText("");
+                this.vistaRegis.txtApellido.setText("");
+                this.vistaRegis.txtCorreo.setText("");
+                this.vistaRegis.txtDoc.setText("");
+                this.vistaRegis.txtNombre.setText("");
+                this.vistaRegis.txtNumCel.setText("");
+                this.vistaRegis.txtContraseña.setText("");
+                this.vistaRegis.txtConfirmar.setText("");
+                this.vistaRegis.txtUsuario.setText("");
                 
         }
     
