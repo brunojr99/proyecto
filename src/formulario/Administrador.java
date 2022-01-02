@@ -5,12 +5,19 @@
  */
 package formulario;
 
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.plaf.IconUIResource;
+
 /**
  *
  * @author ssant
  */
 public class Administrador extends javax.swing.JFrame {
-
+    private ImageIcon imagen;
+    private Icon icono;
     /**
      * Creates new form Administrador
      */
@@ -18,6 +25,9 @@ public class Administrador extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Administrador");
+        
+        this.pintarImagen(this.lblImage1, "src/imagen/perfildeusuario.jpg");
+        this.pintarImagen(this.lblImage2, "src/imagen/contra.png");
     }
 
     /**
@@ -30,8 +40,15 @@ public class Administrador extends javax.swing.JFrame {
     private void initComponents() {
 
         btnVolver = new javax.swing.JButton();
+        lblImage1 = new javax.swing.JLabel();
+        lblImage2 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        txtContra = new javax.swing.JTextField();
+        btnIngresar = new javax.swing.JButton();
+        lblImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -39,23 +56,29 @@ public class Administrador extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 70, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(251, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(45, 45, 45))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(268, Short.MAX_VALUE)
-                .addComponent(btnVolver)
-                .addGap(37, 37, 37))
-        );
+        lblImage1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblImage1.setOpaque(true);
+        getContentPane().add(lblImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 30, 30));
+
+        lblImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/perfildeusuario.jpg"))); // NOI18N
+        lblImage2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lblImage2.setOpaque(true);
+        getContentPane().add(lblImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 30, 30));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 130, -1));
+        getContentPane().add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 130, -1));
+
+        btnIngresar.setText("Ingresar");
+        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIngresarActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+
+        lblImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\ssant\\Desktop\\imagenes\\admin.jpg")); // NOI18N
+        getContentPane().add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 430, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -65,6 +88,10 @@ public class Administrador extends javax.swing.JFrame {
         usuadmin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
+
+    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        
+    }//GEN-LAST:event_btnIngresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -100,8 +127,24 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(
+                lbl.getWidth(), 
+                lbl.getHeight(), 
+                Image.SCALE_DEFAULT));
+        lbl.setIcon(this.icono);
+        this.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnVolver;
+    private javax.swing.JLabel lblImage;
+    private javax.swing.JLabel lblImage1;
+    private javax.swing.JLabel lblImage2;
+    private javax.swing.JTextField txtContra;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
