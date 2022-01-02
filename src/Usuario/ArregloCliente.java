@@ -26,7 +26,7 @@ public class ArregloCliente {
         for(int i=0;i<this.indice;i++){
             if(this.arregloU[i].getUsuario().equalsIgnoreCase(usuario)){
                 if(this.arregloU[i].getContraseña().equalsIgnoreCase(contraseña)){
-                    result = true;
+                    return true;
                 }
                 
             }
@@ -37,18 +37,17 @@ public class ArregloCliente {
     
     public boolean UsuValido(String documento, String contraseña, String confirm){//Ver si un usuario ya esta registrado antes de crear otro
         boolean result = false;
-        for(int i=0; i<this.indice;i++){
+        
+        if(contraseña == confirm){
+            
+            for(int i=0; i<this.indice;i++){
             
             if(this.arregloU[i].getDocumento().equalsIgnoreCase(documento)){//revisa si el numero de doc enviado es el mismo o no
-                result=true;
-                    break;
+                return true;
             }
             
         
-        }
-        if(contraseña == confirm){
-            result=true;
-                    
+        }  
         }
         return result;
     }

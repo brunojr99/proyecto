@@ -80,14 +80,14 @@ ArregloCliente arreglocliente = new ArregloCliente();
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-       if(!arreglocliente.VerificaLogeo(txtUsuario.toString(), txtPasword.toString())){
+       if(!arreglocliente.VerificaLogeo(txtUsuario.toString(), txtPasword.toString()) == true){
            PerUsu ingresar = new PerUsu();
            JOptionPane.showMessageDialog(this, "Hola");
            ingresar.setVisible(true);
            this.setVisible(false);
            
        }else{
-           JOptionPane.showMessageDialog(this, "Sigue intentando gil");
+           JOptionPane.showMessageDialog(this, "Sigue intentando :)");
        }
     }//GEN-LAST:event_btnLoginActionPerformed
 

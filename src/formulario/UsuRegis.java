@@ -205,7 +205,7 @@ ArregloCliente arreglocliente = new ArregloCliente();
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
         Usuario usuario = new Usuario();
         usuario.setVisible(true);
-        this.setVisible(false);
+        this.setVisible(true);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
