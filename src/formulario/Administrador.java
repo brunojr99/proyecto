@@ -5,6 +5,7 @@
  */
 package formulario;
 
+import Usuario.ArregloCliente;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -18,10 +19,12 @@ import javax.swing.plaf.IconUIResource;
 public class Administrador extends javax.swing.JFrame {
     private ImageIcon imagen;
     private Icon icono;
+    ArregloCliente arreglocliente;
     /**
      * Creates new form Administrador
      */
-    public Administrador() {
+    public Administrador(ArregloCliente arreglocliente) {
+        this.arreglocliente = arreglocliente;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Administrador");
@@ -56,7 +59,7 @@ public class Administrador extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 70, -1));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 80, -1));
 
         lblImage1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblImage1.setOpaque(true);
@@ -66,7 +69,19 @@ public class Administrador extends javax.swing.JFrame {
         lblImage2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblImage2.setOpaque(true);
         getContentPane().add(lblImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 30, 30));
+
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtUsuarioActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 130, -1));
+
+        txtContra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 130, -1));
 
         btnIngresar.setText("Ingresar");
@@ -77,14 +92,14 @@ public class Administrador extends javax.swing.JFrame {
         });
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
-        lblImage.setIcon(new javax.swing.ImageIcon("C:\\Users\\ssant\\Desktop\\imagenes\\admin.jpg")); // NOI18N
-        getContentPane().add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, 0, 430, 360));
+        lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/admin.jpg"))); // NOI18N
+        getContentPane().add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 430, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        UsuAdmin usuadmin= new UsuAdmin();
+        UsuAdmin usuadmin= new UsuAdmin(this.arreglocliente);
         usuadmin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
@@ -93,40 +108,18 @@ public class Administrador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtUsuarioActionPerformed
+
+    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Administrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Administrador().setVisible(true);
-            }
-        });
-    }
+    
     
     private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);

@@ -6,6 +6,10 @@
 package formulario;
 
 import Usuario.ArregloCliente;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +17,15 @@ import javax.swing.JOptionPane;
  * @author ssant
  */
 public class UsuLog extends javax.swing.JFrame {
-ArregloCliente arreglocliente = new ArregloCliente();
-    /**
+    ArregloCliente arreglocliente = new ArregloCliente(100);
+    private ImageIcon imagen;
+    private Icon icono;  
+/**
      * Creates new form UsuLog
      */
     public UsuLog() {
         initComponents();
+        this.pintarImagen(this.Photo, "src/imagen/RemRamp.jpg");
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
     }
@@ -38,6 +45,7 @@ ArregloCliente arreglocliente = new ArregloCliente();
         btnVolver = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         txtPasword = new javax.swing.JTextField();
+        Photo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,6 +79,7 @@ ArregloCliente arreglocliente = new ArregloCliente();
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
         getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
+        getContentPane().add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,8 +89,13 @@ ArregloCliente arreglocliente = new ArregloCliente();
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-       if(!arreglocliente.VerificaLogeo(txtUsuario.toString(), txtPasword.toString()) == true){
-           PerUsu ingresar = new PerUsu();
+       String usuario, contraseña;
+       
+       usuario = this.txtUsuario.getText();
+       contraseña = this.txtPasword.getText();
+       
+        if(arreglocliente.VerificaLogeo(usuario,contraseña)){
+           PerUsu ingresar = new PerUsu(this.arreglocliente);
            JOptionPane.showMessageDialog(this, "Hola");
            ingresar.setVisible(true);
            this.setVisible(false);
@@ -92,17 +106,26 @@ ArregloCliente arreglocliente = new ArregloCliente();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Usuario volver = new Usuario();
+        Usuario volver = new Usuario(this.arreglocliente);
         volver.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
-
+private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(
+                lbl.getWidth(), 
+                lbl.getHeight(), 
+                Image.SCALE_DEFAULT));
+        lbl.setIcon(this.icono);
+        this.repaint();
+    }
     /**
      * @param args the command line arguments
      */
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Photo;
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;

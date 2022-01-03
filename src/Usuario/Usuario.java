@@ -10,7 +10,7 @@ public class Usuario {
     
     
 
-    public Usuario(String nombre, String apellido, String documento, String contraseña, String usuario) {
+    public Usuario(String nombre,String usuario, String apellido, String documento, String contraseña) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
@@ -65,11 +65,11 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return  nombre + 
-                apellido + 
-                documento + 
-                contraseña + 
-                usuario;
+        return  this.getNombre() +"\n"+ 
+                this.getApellido() + "\n"+ 
+                this.getDocumento() + "\n"+ 
+                this.getContraseña() + "\n"+ 
+                this.getUsuario()+"\n" ;
     }
     
     

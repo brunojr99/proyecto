@@ -15,14 +15,16 @@ import Usuario.ArregloCliente;
  * @author ssant
  */
 public class UsuRegis extends javax.swing.JFrame {
-ArregloCliente arreglocliente = new ArregloCliente();
+ArregloCliente arreglocliente = new ArregloCliente(100);
     DefaultTableModel model = new DefaultTableModel();
+    
     /**
      * Creates new form UsuRegis
      */
-    public UsuRegis() {
+    public UsuRegis(ArregloCliente arreglocliente) {
         
         initComponents();
+        this.arreglocliente = arreglocliente;
         this.setLocationRelativeTo(null);
         this.setTitle("Registro de usuario");
     }
@@ -188,7 +190,7 @@ ArregloCliente arreglocliente = new ArregloCliente();
         getContentPane().add(txtConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, -1));
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Kirbyfeli.jpg"))); // NOI18N
-        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-120, 0, 520, 390));
+        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, 40, 520, 390));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -203,33 +205,26 @@ ArregloCliente arreglocliente = new ArregloCliente();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario(this.arreglocliente);
         usuario.setVisible(true);
-        this.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         
+        String nombre, usuario, apellido, documento, numCel, correo, contraseña, confirm;
         
+        nombre = this.txtNombre.getText();
+        usuario = this.txtUsuario.getText();
+        apellido = this.txtApellido.getText();
+        documento = this.txtDoc.getText();
+        numCel = this.txtNumCel.getText();
+        correo = this.txtCorreo.getText();
+        contraseña = this.txtContraseña.getText();
+        confirm = this.txtConfirmar.getText();
+        cliente Cliente = new cliente(nombre, usuario, apellido, numCel, correo, documento, contraseña, confirm);
+        this.arreglocliente.agregar(Cliente);
         
-        if(!arreglocliente.UsuValido(txtDoc.toString(), txtContraseña.toString(),txtConfirmar.toString())){
-                    cliente Cliente;
-                    Cliente = new cliente(txtNumCel.getText(), 
-                            txtCorreo.getText()
-                            ,txtNombre.getText()
-                            ,txtApellido.getText(), 
-                            txtDoc.getText(), 
-                            txtContraseña.getText(),
-                            txtConfirmar.getText(),
-                            txtUsuario.getText()
-                            );
-                    arreglocliente.agregar(Cliente);
-                    JOptionPane.showMessageDialog(this,"Doc registrado exitosamente") ;
-                    
-                }else{
-                    JOptionPane.showMessageDialog(this,"Doc no valido") ;
-                    
-                }
         this.txtNombre.setText("");
         this.txtApellido.setText("");
         this.txtCorreo.setText("");

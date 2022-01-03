@@ -1,20 +1,17 @@
 
 package App;
 
-import Controlador.controladorRegis;
+import Controlador.controladorInicio;
 import Usuario.ArregloCliente;
-import Usuario.cliente;
-import formulario.UsuRegis;
+import formulario.Inicio;
+
 
 public class app {
     public static void main(String[] args) {
-        cliente Cliente;
-        ArregloCliente arregloCliente;
-        UsuRegis usuregis = new UsuRegis();
-        arregloCliente = new ArregloCliente();
+        ArregloCliente arregloCliente = new ArregloCliente(100);
+        Inicio vistaI = new Inicio(arregloCliente);
+        controladorInicio Controlador = new controladorInicio(arregloCliente,vistaI);
         
-        controladorRegis Controlado = new controladorRegis(arregloCliente, usuregis);
-        
-        Controlado.iniciar();
+        Controlador.iniciar();
     }
 }

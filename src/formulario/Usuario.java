@@ -5,17 +5,20 @@
  */
 package formulario;
 
+import Usuario.ArregloCliente;
+
 /**
  *
  * @author ssant
  */
 public class Usuario extends javax.swing.JFrame {
-
+    ArregloCliente arreglocliente;
     /**
      * Creates new form Usuario
      */
-    public Usuario() {
+    public Usuario(ArregloCliente arreglocliente) {
         initComponents();
+        this.arreglocliente = arreglocliente;
         this.setLocationRelativeTo(null);
         this.setTitle("Usuario");
     }
@@ -35,7 +38,6 @@ public class Usuario extends javax.swing.JFrame {
         btnRegistrarse = new javax.swing.JButton();
         btnLogearse = new javax.swing.JButton();
         btnVolver = new javax.swing.JButton();
-        btnEliminar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +76,7 @@ public class Usuario extends javax.swing.JFrame {
                 btnRegistrarseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 100, 40));
+        getContentPane().add(btnRegistrarse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 100, 40));
 
         btnLogearse.setText("Logearse");
         btnLogearse.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +84,7 @@ public class Usuario extends javax.swing.JFrame {
                 btnLogearseActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogearse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 100, 40));
+        getContentPane().add(btnLogearse, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 100, 40));
 
         btnVolver.setText("Volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -90,15 +92,7 @@ public class Usuario extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, 100, 40));
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 200, 100, 40));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, 100, 40));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -106,19 +100,19 @@ public class Usuario extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, 100, 40));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 100, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        UsuAdmin volver = new UsuAdmin();
+        UsuAdmin volver = new UsuAdmin(this.arreglocliente);
         volver.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        UsuRegis usuregis = new UsuRegis();
+        UsuRegis usuregis = new UsuRegis(this.arreglocliente);
         usuregis.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
@@ -129,23 +123,14 @@ public class Usuario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnLogearseActionPerformed
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        UsuElim eliminar = new UsuElim();
-        eliminar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnLogearse;
     private javax.swing.JButton btnRegistrarse;
     private javax.swing.JButton btnSalir;

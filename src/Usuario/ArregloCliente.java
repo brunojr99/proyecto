@@ -3,31 +3,30 @@ package Usuario;
 
 import ControladorUsuCit.controladorU;
 import java.util.Arrays;
-import java.util.Collections;
+
 
 public class ArregloCliente {
     private cliente arregloU[];
     private cliente arregloU2[];
-    private int indice = 0;
+    private int indice;
+    private int tamaño;
     
-    public ArregloCliente() {
-        
-        this.arregloU = new cliente[controladorU.maxUsuario];
-        this.indice = indice;
-    }
+    
     public ArregloCliente(int tamaño) {
         this.indice = 0;
-        this.arregloU = new cliente[tamaño];
+        this.tamaño = tamaño;
+        this.arregloU = new cliente[this.tamaño];
     }
     
     
     public boolean VerificaLogeo(String usuario, String contraseña){
         boolean result = false;
         for(int i=0;i<this.indice;i++){
-            if(this.arregloU[i].getUsuario().equalsIgnoreCase(usuario)){
-                if(this.arregloU[i].getContraseña().equalsIgnoreCase(contraseña)){
+            if(this.arregloU[i].getUsuario()==usuario){
+                for(int j=0;i<this.indice;j++){
+                if(this.arregloU[j].getContraseña()==contraseña){
                     return true;
-                }
+                }}
                 
             }
             
@@ -35,19 +34,21 @@ public class ArregloCliente {
         return result;
     }
     
-    public boolean UsuValido(String documento, String contraseña, String confirm){//Ver si un usuario ya esta registrado antes de crear otro
+    public boolean UsuValido(cliente documento){//Ver si un usuario ya esta registrado antes de crear otro
         boolean result = false;
         
-        if(contraseña == confirm){
+        
             
             for(int i=0; i<this.indice;i++){
             
-            if(this.arregloU[i].getDocumento().equalsIgnoreCase(documento)){//revisa si el numero de doc enviado es el mismo o no
-                return true;
+            if(documento.getDocumento().equals(this.arregloU[i].getDocumento())){//revisa si el numero de doc enviado es el mismo o no
+                if(documento.getContraseña()==documento.getConfirmarcontraseña()){
+                    return true;
+                }
             }
             
         
-        }  
+        
         }
         return result;
     }
@@ -55,14 +56,19 @@ public class ArregloCliente {
     
     public boolean agregar(cliente usuario){
         boolean result = false;
-        if(!UsuValido(usuario.getDocumento(),usuario.getContraseña(), usuario.getConfirmarcontraseña())){//Si es true va a agregar
-            if(estaLleno()){//Si esta lleno lo agrega
+        cliente documento = null;
+        documento = usuario;
+        
+            if(!UsuValido(documento)){//Si es true va a agregar
+            if(estaLleno()){//Si esta lleno aumentara tamaño
                crecerArreglo(); 
             }
             this.arregloU[this.indice] = usuario;
             this.indice++;
             result = true;
+        
         }
+        
         return result;
     }
     
@@ -127,6 +133,14 @@ public class ArregloCliente {
         }
         
         return result;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
     }
 
     

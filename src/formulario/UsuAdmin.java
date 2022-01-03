@@ -5,17 +5,20 @@
  */
 package formulario;
 
+import Usuario.ArregloCliente;
+
 /**
  *
  * @author ssant
  */
 public class UsuAdmin extends javax.swing.JFrame {
-
+ArregloCliente arreglocliente;
     /**
      * Creates new form UsuAdmin
      */
-    public UsuAdmin() {
+    public UsuAdmin(ArregloCliente arreglocliente) {
         initComponents();
+        this.arreglocliente=arreglocliente;
         this.setLocationRelativeTo(null);
         this.setTitle("Usuario/Admin");
     }
@@ -95,7 +98,7 @@ public class UsuAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        Administrador administrador = new Administrador();
+        Administrador administrador = new Administrador(this.arreglocliente);
         administrador.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnAdminActionPerformed
@@ -106,14 +109,12 @@ public class UsuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        Usuario usuario = new Usuario();
+        Usuario usuario = new Usuario(this.arreglocliente);
+        this.dispose();
         usuario.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
