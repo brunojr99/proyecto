@@ -118,7 +118,7 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnLogearseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogearseActionPerformed
-        UsuLog logearse = new UsuLog();
+        UsuLog logearse = new UsuLog(arreglocliente);
         logearse.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnLogearseActionPerformed

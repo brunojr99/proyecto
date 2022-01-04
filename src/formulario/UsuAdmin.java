@@ -110,7 +110,7 @@ ArregloCliente arreglocliente;
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
         Usuario usuario = new Usuario(this.arreglocliente);
-        this.dispose();
+        this.dispose();//para cerrar la ventana actual
         usuario.setVisible(true);
     }//GEN-LAST:event_btnUsuarioActionPerformed
 

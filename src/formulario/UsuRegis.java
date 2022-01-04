@@ -15,8 +15,8 @@ import Usuario.ArregloCliente;
  * @author ssant
  */
 public class UsuRegis extends javax.swing.JFrame {
-ArregloCliente arreglocliente = new ArregloCliente(100);
-    DefaultTableModel model = new DefaultTableModel();
+ArregloCliente arreglocliente;
+    
     
     /**
      * Creates new form UsuRegis
@@ -58,8 +58,8 @@ ArregloCliente arreglocliente = new ArregloCliente(100);
         btnImprimir = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        txtContraseña = new javax.swing.JTextField();
-        txtConfirmar = new javax.swing.JTextField();
+        pswContra = new javax.swing.JPasswordField();
+        pswConfir = new javax.swing.JPasswordField();
         lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -180,14 +180,14 @@ ArregloCliente arreglocliente = new ArregloCliente(100);
                 btnImprimirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 320, -1, -1));
+        getContentPane().add(btnImprimir, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel10.setText("Usuario");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 110, 90, -1));
-        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 90, -1));
-        getContentPane().add(txtConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, -1));
+        getContentPane().add(pswContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 90, -1));
+        getContentPane().add(pswConfir, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 90, -1));
 
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/Kirbyfeli.jpg"))); // NOI18N
         getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, 40, 520, 390));
@@ -220,8 +220,8 @@ ArregloCliente arreglocliente = new ArregloCliente(100);
         documento = this.txtDoc.getText();
         numCel = this.txtNumCel.getText();
         correo = this.txtCorreo.getText();
-        contraseña = this.txtContraseña.getText();
-        confirm = this.txtConfirmar.getText();
+        contraseña = String.valueOf(this.pswContra.getPassword());
+        confirm = String.valueOf(this.pswConfir.getPassword());
         cliente Cliente = new cliente(nombre, usuario, apellido, numCel, correo, documento, contraseña, confirm);
         this.arreglocliente.agregar(Cliente);
         
@@ -230,8 +230,8 @@ ArregloCliente arreglocliente = new ArregloCliente(100);
         this.txtCorreo.setText("");
         this.txtDoc.setText("");
         this.txtNumCel.setText("");
-        this.txtContraseña.setText("");
-        this.txtConfirmar.setText("");
+        this.pswContra.setText("");
+        this.pswConfir.setText("");
         this.txtUsuario.setText("");
         
         
@@ -284,9 +284,9 @@ ArregloCliente arreglocliente = new ArregloCliente(100);
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     public javax.swing.JLabel lblImagen;
+    private javax.swing.JPasswordField pswConfir;
+    private javax.swing.JPasswordField pswContra;
     public javax.swing.JTextField txtApellido;
-    public javax.swing.JTextField txtConfirmar;
-    public javax.swing.JTextField txtContraseña;
     public javax.swing.JTextField txtCorreo;
     public javax.swing.JTextField txtDoc;
     public javax.swing.JTextField txtNombre;

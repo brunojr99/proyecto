@@ -32,8 +32,8 @@ public class controladorInicio {
             @Override
             public void actionPerformed(ActionEvent e) {
                 UsuAdmin usuadmin = new UsuAdmin(modelo);
-            usuadmin.setVisible(true);
-            vistaI.setVisible(false);
+                usuadmin.setVisible(true);
+                vistaI.setVisible(false);
             }
         });
         

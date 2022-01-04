@@ -65,11 +65,11 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return  this.getNombre() +"\n"+ 
-                this.getApellido() + "\n"+ 
-                this.getDocumento() + "\n"+ 
-                this.getContraseña() + "\n"+ 
-                this.getUsuario()+"\n" ;
+        return  "Nombre: "+ this.getNombre() +"\n"+ 
+                "Usuario: "+this.getUsuario()+"\n" + 
+                "Apellido"+ this.getApellido() + "\n"+ 
+                "N° Doc: " +  this.getDocumento() + "\n"+ 
+                "Contraseña: " + this.getContraseña();
     }
     
     

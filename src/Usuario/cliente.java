@@ -48,8 +48,8 @@ public class cliente extends Usuario{
     @Override
     public String toString() {
         String result = super.toString()+"\n"+
-                        getNumCel()+"\n"+
-                        getCorreo()+"\n"+
+                        "Numero de celular: "+getNumCel()+"\n"+
+                        "Correo: "+getCorreo()+"\n"+
                     "---------------------------------\n";
         return  result;
     }

@@ -13,12 +13,12 @@ import Usuario.ArregloCliente;
  * @author ssant
  */
 public class Inicio extends javax.swing.JFrame {
-    ArregloCliente arreglocliente;
+    
     /**
      * Creates new form Inicio
      */
-    public Inicio(ArregloCliente arreglocliente) {
-        this.arreglocliente = arreglocliente;
+    public Inicio() {
+        
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Sistema de gestion para museo");

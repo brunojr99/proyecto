@@ -21,16 +21,17 @@ public class ArregloCliente {
     
     public boolean VerificaLogeo(String usuario, String contraseña){
         boolean result = false;
+        System.out.println(indice);
         for(int i=0;i<this.indice;i++){
-            if(this.arregloU[i].getUsuario()==usuario){
-                for(int j=0;i<this.indice;j++){
-                if(this.arregloU[j].getContraseña()==contraseña){
-                    return true;
-                }}
+            
+            if(this.arregloU[i].getUsuario().equals(usuario)&&this.arregloU[i].getContraseña().equals(contraseña)){
+                
+                result = true;
+                break;
                 
             }
-            
         }
+        
         return result;
     }
     
@@ -38,18 +39,18 @@ public class ArregloCliente {
         boolean result = false;
         
         
-            
-            for(int i=0; i<this.indice;i++){
-            
-            if(documento.getDocumento().equals(this.arregloU[i].getDocumento())){//revisa si el numero de doc enviado es el mismo o no
-                if(documento.getContraseña()==documento.getConfirmarcontraseña()){
-                    return true;
+        if(documento.getContraseña().equals(documento.getConfirmarcontraseña())){//valida si son iguales
+            result = true;
+            if(indice>0){//si el indice es mayor a 0
+                for(int i=0; i<this.indice;i++){//recorre el indice
+                    if(documento.getDocumento().equals(this.arregloU[i].getDocumento())){//compara si hay un documento ya registrado
+                    result = false;
+                    break;
+                    }  
                 }
             }
-            
-        
-        
         }
+        
         return result;
     }
     
@@ -59,15 +60,15 @@ public class ArregloCliente {
         cliente documento = null;
         documento = usuario;
         
-            if(!UsuValido(documento)){//Si es true va a agregar
-            if(estaLleno()){//Si esta lleno aumentara tamaño
-               crecerArreglo(); 
-            }
+            if(UsuValido(documento)){//Si es true va a agregar
+                if(estaLleno()){//Si esta lleno aumentara tamaño
+                    crecerArreglo(); 
+                }
             this.arregloU[this.indice] = usuario;
-            this.indice++;
+            this.indice = indice +1;
             result = true;
         
-        }
+            }
         
         return result;
     }
@@ -83,13 +84,13 @@ public class ArregloCliente {
     
     
     private void crecerArreglo(){//hara que el arreglo cresca
-        if(estaLleno()==true){
-            arregloU2 = new cliente[controladorU.maxUsuario];
-            for(int i=0;i<controladorU.maxUsuario;i++){
+        if(estaLleno()){
+            arregloU2 = new cliente[tamaño];
+            for(int i=0;i<tamaño;i++){
                 arregloU2[i] = arregloU[i];
             }
-            arregloU = new cliente[controladorU.maxUsuario+1];
-            for(int i=0;i<controladorU.maxUsuario-1;i++){
+            arregloU = new cliente[tamaño+1];
+            for(int i=0;i<tamaño-1;i++){
                 arregloU[i]=arregloU2[i];
             }
         }
@@ -97,7 +98,7 @@ public class ArregloCliente {
     
     private boolean estaLleno(){//metodo para validar si el arreglo esta lleno para hacerlo crecer
         boolean result = false;
-        if(this.indice == controladorU.maxUsuario){
+        if(this.indice == this.tamaño){
             
             result = true;
         }
@@ -124,7 +125,14 @@ public class ArregloCliente {
     public void ordenarPorDocumento(){//Para que el Admin pueda ordenar a los Usuarios por Doc
         Arrays.sort(arregloU);
     }
+    public int getIndice() {
+        return indice;
+    }
 
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+    
     @Override
     public String toString() {
         String result=" ";
@@ -135,13 +143,7 @@ public class ArregloCliente {
         return result;
     }
 
-    public int getIndice() {
-        return indice;
-    }
-
-    public void setIndice(int indice) {
-        this.indice = indice;
-    }
+    
 
     
 

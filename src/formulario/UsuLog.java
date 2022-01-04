@@ -17,14 +17,15 @@ import javax.swing.JOptionPane;
  * @author ssant
  */
 public class UsuLog extends javax.swing.JFrame {
-    ArregloCliente arreglocliente = new ArregloCliente(100);
+    ArregloCliente arreglocliente;
     private ImageIcon imagen;
     private Icon icono;  
 /**
      * Creates new form UsuLog
      */
-    public UsuLog() {
+    public UsuLog(ArregloCliente arreglocliente) {
         initComponents();
+        this.arreglocliente=arreglocliente;
         this.pintarImagen(this.Photo, "src/imagen/RemRamp.jpg");
         this.setLocationRelativeTo(null);
         this.setTitle("Login");
@@ -45,6 +46,7 @@ public class UsuLog extends javax.swing.JFrame {
         btnVolver = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
         txtPasword = new javax.swing.JTextField();
+        pswContra = new javax.swing.JPasswordField();
         Photo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -78,7 +80,8 @@ public class UsuLog extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
-        getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
+        getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 150, -1));
+        getContentPane().add(pswContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
         getContentPane().add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 310));
 
         pack();
@@ -92,7 +95,7 @@ public class UsuLog extends javax.swing.JFrame {
        String usuario, contraseña;
        
        usuario = this.txtUsuario.getText();
-       contraseña = this.txtPasword.getText();
+       contraseña = String.valueOf(this.pswContra.getPassword());
        
         if(arreglocliente.VerificaLogeo(usuario,contraseña)){
            PerUsu ingresar = new PerUsu(this.arreglocliente);
@@ -101,7 +104,7 @@ public class UsuLog extends javax.swing.JFrame {
            this.setVisible(false);
            
        }else{
-           JOptionPane.showMessageDialog(this, "Sigue intentando :)");
+           JOptionPane.showMessageDialog(this, "Sigue intentando compa");
        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -130,6 +133,7 @@ private void pintarImagen(JLabel lbl, String ruta){
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField pswContra;
     public javax.swing.JTextField txtPasword;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

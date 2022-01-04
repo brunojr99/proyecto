@@ -9,7 +9,7 @@ import formulario.Inicio;
 public class app {
     public static void main(String[] args) {
         ArregloCliente arregloCliente = new ArregloCliente(100);
-        Inicio vistaI = new Inicio(arregloCliente);
+        Inicio vistaI = new Inicio();
         controladorInicio Controlador = new controladorInicio(arregloCliente,vistaI);
         
         Controlador.iniciar();
