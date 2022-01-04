@@ -2,14 +2,11 @@
 package Controlador;
 
 import Usuario.ArregloCliente;
-import Usuario.cliente;
 import formulario.Inicio;
 import formulario.UsuAdmin;
-import formulario.UsuRegis;
-import formulario.Usuario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JOptionPane;
+
 
 public class controladorInicio {
     
