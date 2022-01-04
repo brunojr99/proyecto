@@ -45,7 +45,6 @@ public class UsuLog extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         btnVolver = new javax.swing.JButton();
         btnLogin = new javax.swing.JButton();
-        txtPasword = new javax.swing.JTextField();
         pswContra = new javax.swing.JPasswordField();
         Photo = new javax.swing.JLabel();
 
@@ -80,7 +79,6 @@ public class UsuLog extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
-        getContentPane().add(txtPasword, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 150, -1));
         getContentPane().add(pswContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 150, -1));
         getContentPane().add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 370, 310));
 
@@ -134,7 +132,6 @@ private void pintarImagen(JLabel lbl, String ruta){
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPasswordField pswContra;
-    public javax.swing.JTextField txtPasword;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

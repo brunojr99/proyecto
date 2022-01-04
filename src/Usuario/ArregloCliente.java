@@ -21,7 +21,7 @@ public class ArregloCliente {
     
     public boolean VerificaLogeo(String usuario, String contraseña){
         boolean result = false;
-        System.out.println(indice);
+        
         for(int i=0;i<this.indice;i++){
             
             if(this.arregloU[i].getUsuario().equals(usuario)&&this.arregloU[i].getContraseña().equals(contraseña)){
@@ -83,7 +83,7 @@ public class ArregloCliente {
     
     
     
-    private void crecerArreglo(){//hara que el arreglo cresca
+    private void crecerArreglo(){//hara que el arreglo crezca
         if(estaLleno()){
             arregloU2 = new cliente[tamaño];
             for(int i=0;i<tamaño;i++){
@@ -136,6 +136,7 @@ public class ArregloCliente {
     @Override
     public String toString() {
         String result=" ";
+        
         for(int i =0;i<this.indice;i++){
             result += this.arregloU[i];
         }
