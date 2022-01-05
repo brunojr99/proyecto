@@ -7,6 +7,10 @@ package formulario;
 
 import Usuario.ArregloCliente;
 import administrador.ArregloAdmin;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -15,6 +19,8 @@ import administrador.ArregloAdmin;
 public class PerUsu extends javax.swing.JFrame {
 ArregloCliente arreglocliente;
 ArregloAdmin  arregloadmin;
+    private ImageIcon imagen;
+    private Icon icono;
     /**
      * Creates new form PerUsu
      */
@@ -25,6 +31,7 @@ ArregloAdmin  arregloadmin;
         this.setLocationRelativeTo(null);
         this.setTitle("Perfil de Usuario");
         this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
+        this.pintarImagen(this.Photo, "src/imagen/dogeSamurai.jpg");
     }
     
     /**
@@ -39,18 +46,20 @@ ArregloAdmin  arregloadmin;
         btnRCita = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        Photo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnRCita.setText("Sacar Cita");
+        btnRCita.setText("Cita");
         btnRCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRCitaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+        getContentPane().add(btnRCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 90, 30));
 
         jButton4.setText("Cerrar sesion");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -58,11 +67,21 @@ ArregloAdmin  arregloadmin;
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 200, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 130, 40));
 
         jButton1.setText("Obras");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 90, 30));
+
+        Photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 40, 440, 370));
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setText("Perfil Usuario");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 40));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -85,12 +104,22 @@ ArregloAdmin  arregloadmin;
     /**
      * @param args the command line arguments
      */
-    
+    private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(
+                lbl.getWidth(), 
+                lbl.getHeight(), 
+                Image.SCALE_DEFAULT));
+        lbl.setIcon(this.icono);
+        this.repaint();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Photo;
     public javax.swing.JButton btnRCita;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
