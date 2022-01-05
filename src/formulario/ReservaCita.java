@@ -38,7 +38,7 @@ ArregloAdmin  arregloadmin;
         this.setLocationRelativeTo(null);
         this.setTitle("Sistema de reserva de cita");
         LlenadoFecha();
-       
+       this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
     public void LlenadoFecha(){
         Fecha temporal[] = arreglofecha.getFcita();

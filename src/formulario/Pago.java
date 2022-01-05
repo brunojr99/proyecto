@@ -16,6 +16,7 @@ public class Pago extends javax.swing.JFrame {
      */
     public Pago() {
         initComponents();
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
 
     /**

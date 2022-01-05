@@ -16,6 +16,7 @@ public class SistemaFrame extends javax.swing.JFrame {
      */
     public SistemaFrame() {
         initComponents();
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
 
     /**

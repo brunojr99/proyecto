@@ -31,6 +31,7 @@ private ImageIcon imagen;
         this.pintarImagen(this.Photo, "src/imagen/Pekka.jpg");
         this.setLocationRelativeTo(null);
         this.setTitle("Controlador pa admin grandote");
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
 
     /**

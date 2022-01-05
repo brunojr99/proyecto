@@ -32,6 +32,7 @@ private Icon icono;
         this.pintarImagen(this.photo, "src/imagen/minipekka.jpg");
         this.setLocationRelativeTo(null);
         this.setTitle("Controlador pa admin chikititito");
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
 
     /**

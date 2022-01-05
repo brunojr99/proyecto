@@ -24,6 +24,7 @@ ArregloCliente arreglocliente;
         this.arreglocliente = arreglocliente;
         this.arregloadmin = arregloadmin;
         initComponents();
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
         
     }
 

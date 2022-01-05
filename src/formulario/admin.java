@@ -34,7 +34,7 @@ private ImageIcon imagen;
         this.pintarImagen(this.lblImage1, "src/imagen/perfildeusuario.jpg");
         this.pintarImagen(this.lblImage2, "src/imagen/contra.png");
         this.pintarImagen(this.photo, "src/imagen/catKing.png");
-        
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
 
     /**

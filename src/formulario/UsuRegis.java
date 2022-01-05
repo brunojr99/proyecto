@@ -29,6 +29,7 @@ ArregloAdmin  arregloadmin;
         this.arreglocliente = arreglocliente;
         this.setLocationRelativeTo(null);
         this.setTitle("Registro de usuario");
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
     }
 
     /**

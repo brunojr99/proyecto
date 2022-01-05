@@ -32,6 +32,7 @@ public class TipoAdmin extends javax.swing.JFrame {
         this.pintarImagen(this.Photo, "src/imagen/Kong.jpg");
         this.setLocationRelativeTo(null);
         this.setTitle("Tipo Administrador");
+        this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
         
     }
 
