@@ -1,21 +1,28 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package administrador;
 
-package Usuario;
-
-import ControladorAdmin.config;
+import Usuario.cliente;
 import java.util.Arrays;
 
-
-public class ArregloCliente {
-    private cliente arregloU[];
-    private cliente arregloU2[];
+/**
+ *
+ * @author USER
+ */
+public class ArregloAdmin {
+    private Admin arregloA[];
+    private Admin arregloA2[];
     private int indice;
     private int tamaño;
     
     
-    public ArregloCliente(int tamaño) {
+    public ArregloAdmin(int tamaño) {
         this.indice = 0;
         this.tamaño = tamaño;
-        this.arregloU = new cliente[this.tamaño];
+        this.arregloA = new Admin[this.tamaño];
     }
     
     
@@ -24,7 +31,7 @@ public class ArregloCliente {
         
         for(int i=0;i<this.indice;i++){
             
-            if(this.arregloU[i].getUsuario().equals(usuario)&&this.arregloU[i].getContraseña().equals(contraseña)){
+            if(this.arregloA[i].getUsuario().equals(usuario)&&this.arregloA[i].getContraseña().equals(contraseña)){
                 
                 result = true;
                 break;
@@ -35,7 +42,7 @@ public class ArregloCliente {
         return result;
     }
     
-    public boolean UsuValido(cliente documento){//Ver si un usuario ya esta registrado antes de crear otro
+    public boolean UsuValido(Admin documento){//Ver si un usuario ya esta registrado antes de crear otro
         boolean result = false;
         
         
@@ -43,7 +50,7 @@ public class ArregloCliente {
             result = true;
             if(indice>0){//si el indice es mayor a 0
                 for(int i=0; i<this.indice;i++){//recorre el indice
-                    if(documento.getDocumento().equals(this.arregloU[i].getDocumento())){//compara si hay un documento ya registrado
+                    if(documento.getDocumento().equals(this.arregloA[i].getDocumento())){//compara si hay un documento ya registrado
                     result = false;
                     break;
                     }  
@@ -55,43 +62,34 @@ public class ArregloCliente {
     }
     
     
-    public boolean agregar(cliente usuario){
+    public boolean agregar(Admin usuario){
         boolean result = false;
-        cliente documento = null;
+        Admin documento = null;
         documento = usuario;
         
             if(UsuValido(documento)){//Si es true va a agregar
                 if(estaLleno()){//Si esta lleno aumentara tamaño
                     crecerArreglo(); 
                 }
-            this.arregloU[this.indice] = usuario;
+            this.arregloA[this.indice] = usuario;
             this.indice = indice +1;
             result = true;
         
             }
         
         return result;
-    }
-    
-    public boolean eliminarUsuario(cliente usuario){
-        boolean result = false;
-        
-        
-        
-        return result;
-    }
-    
+    } 
     
     
     private void crecerArreglo(){//hara que el arreglo crezca
         if(estaLleno()){
-            arregloU2 = new cliente[tamaño];
+            arregloA2 = new Admin[tamaño];
             for(int i=0;i<tamaño;i++){
-                arregloU2[i] = arregloU[i];
+                arregloA2[i] = arregloA[i];
             }
-            arregloU = new cliente[tamaño+1];
+            arregloA = new Admin[tamaño+1];
             for(int i=0;i<tamaño-1;i++){
-                arregloU[i]=arregloU2[i];
+                arregloA[i]=arregloA2[i];
             }
         }
     }
@@ -113,18 +111,7 @@ public class ArregloCliente {
         return result;
     }
     
-    public void ordenarPorCorreo(){//Para que el Admin pueda ordenar a los Usuarios por correo
-        Arrays.sort(arregloU);
-        
-    }
-    
-    public void ordenarPorApellido(){//Para que el Admin pueda ordenar a los Usuarios por Apellido
-        Arrays.sort(arregloU);
-    }
-    
-    public void ordenarPorDocumento(){//Para que el Admin pueda ordenar a los Usuarios por Doc
-        Arrays.sort(arregloU);
-    }
+       
     public int getIndice() {
         return indice;
     }
@@ -138,18 +125,9 @@ public class ArregloCliente {
         String result=" ";
         
         for(int i =0;i<this.indice;i++){
-            result += this.arregloU[i];
+            result += this.arregloA[i];
         }
         
         return result;
-    }
-
-    
-
-    
-
-    
-
-    
-    
+}
 }

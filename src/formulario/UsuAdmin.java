@@ -6,6 +6,7 @@
 package formulario;
 
 import Usuario.ArregloCliente;
+import administrador.ArregloAdmin;
 
 /**
  *
@@ -13,11 +14,13 @@ import Usuario.ArregloCliente;
  */
 public class UsuAdmin extends javax.swing.JFrame {
 ArregloCliente arreglocliente;
+ArregloAdmin arregloadmin;
     /**
      * Creates new form UsuAdmin
      */
-    public UsuAdmin(ArregloCliente arreglocliente) {
+    public UsuAdmin(ArregloCliente arreglocliente,ArregloAdmin arregloadmin) {
         initComponents();
+        this.arregloadmin = arregloadmin;
         this.arreglocliente=arreglocliente;
         this.setLocationRelativeTo(null);
         this.setTitle("Usuario/Admin");
@@ -98,8 +101,8 @@ ArregloCliente arreglocliente;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        Administrador administrador = new Administrador(this.arreglocliente);
-        administrador.setVisible(true);
+        TipoAdmin tipoadmin = new TipoAdmin(this.arreglocliente,this.arregloadmin);
+        tipoadmin.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnAdminActionPerformed
 
@@ -109,7 +112,7 @@ ArregloCliente arreglocliente;
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUsuarioActionPerformed
-        Usuario usuario = new Usuario(this.arreglocliente);
+        Usuario usuario = new Usuario(this.arreglocliente,this.arregloadmin);
         this.dispose();//para cerrar la ventana actual
         usuario.setVisible(true);
     }//GEN-LAST:event_btnUsuarioActionPerformed

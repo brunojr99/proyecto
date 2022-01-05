@@ -9,6 +9,7 @@ import Usuario.cliente;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import Usuario.ArregloCliente;
+import administrador.ArregloAdmin;
 
 /**
  *
@@ -16,14 +17,15 @@ import Usuario.ArregloCliente;
  */
 public class UsuRegis extends javax.swing.JFrame {
 ArregloCliente arreglocliente;
-    
+ArregloAdmin  arregloadmin;    
     
     /**
      * Creates new form UsuRegis
      */
-    public UsuRegis(ArregloCliente arreglocliente) {
+    public UsuRegis(ArregloCliente arreglocliente,ArregloAdmin  arregloadmin) {
         
         initComponents();
+        this.arregloadmin = arregloadmin;
         this.arreglocliente = arreglocliente;
         this.setLocationRelativeTo(null);
         this.setTitle("Registro de usuario");
@@ -205,7 +207,7 @@ ArregloCliente arreglocliente;
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Usuario usuario = new Usuario(this.arreglocliente);
+        Usuario usuario = new Usuario(this.arreglocliente,this.arregloadmin);
         usuario.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed

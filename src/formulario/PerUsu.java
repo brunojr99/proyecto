@@ -6,6 +6,7 @@
 package formulario;
 
 import Usuario.ArregloCliente;
+import administrador.ArregloAdmin;
 
 /**
  *
@@ -13,16 +14,18 @@ import Usuario.ArregloCliente;
  */
 public class PerUsu extends javax.swing.JFrame {
 ArregloCliente arreglocliente;
+ArregloAdmin  arregloadmin;
     /**
      * Creates new form PerUsu
      */
-    public PerUsu(ArregloCliente arreglocliente) {
+    public PerUsu(ArregloCliente arreglocliente,ArregloAdmin  arregloadmin) {
         this.arreglocliente = arreglocliente;
+        this.arregloadmin = arregloadmin;
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Perfil de Usuario");
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +35,7 @@ ArregloCliente arreglocliente;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
+        btnRCita = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -40,13 +43,13 @@ ArregloCliente arreglocliente;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Sacar Cita");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnRCita.setText("Sacar Cita");
+        btnRCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRCitaActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
+        getContentPane().add(btnRCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
 
         jButton4.setText("Cerrar sesion");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -64,15 +67,19 @@ ArregloCliente arreglocliente;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Usuario volver = new Usuario(this.arreglocliente);
+        Usuario volver = new Usuario(this.arreglocliente,this.arregloadmin);
         volver.setVisible(true);
-        this.setVisible(false);
+        this.dispose();
+        
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnRCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRCitaActionPerformed
+        
+        ReservaCita reservacita = new ReservaCita(this.arreglocliente,this.arregloadmin);
+        reservacita.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRCitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,8 +87,8 @@ ArregloCliente arreglocliente;
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public javax.swing.JButton btnRCita;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

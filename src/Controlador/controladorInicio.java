@@ -2,6 +2,7 @@
 package Controlador;
 
 import Usuario.ArregloCliente;
+import administrador.ArregloAdmin;
 import formulario.Inicio;
 import formulario.UsuAdmin;
 import java.awt.event.ActionEvent;
@@ -11,9 +12,10 @@ import java.awt.event.ActionListener;
 public class controladorInicio {
     
     private ArregloCliente modelo;
+    private ArregloAdmin  arregloadmin;
     private Inicio vistaI;
     
-    public controladorInicio(ArregloCliente modelo, Inicio vistaI) {
+    public controladorInicio(ArregloCliente modelo, ArregloAdmin  arregloadmin, Inicio vistaI) {
         this.modelo = modelo;
         this.vistaI = vistaI;
         
@@ -28,7 +30,7 @@ public class controladorInicio {
         this.vistaI.btnIngresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UsuAdmin usuadmin = new UsuAdmin(modelo);
+                UsuAdmin usuadmin = new UsuAdmin(modelo,arregloadmin);
                 usuadmin.setVisible(true);
                 vistaI.setVisible(false);
             }

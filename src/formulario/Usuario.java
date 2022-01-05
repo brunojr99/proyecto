@@ -6,6 +6,7 @@
 package formulario;
 
 import Usuario.ArregloCliente;
+import administrador.ArregloAdmin;
 
 /**
  *
@@ -13,10 +14,11 @@ import Usuario.ArregloCliente;
  */
 public class Usuario extends javax.swing.JFrame {
     ArregloCliente arreglocliente;
+    ArregloAdmin arregloadmin;
     /**
      * Creates new form Usuario
      */
-    public Usuario(ArregloCliente arreglocliente) {
+    public Usuario(ArregloCliente arreglocliente,ArregloAdmin arregloadmin) {
         initComponents();
         this.arreglocliente = arreglocliente;
         this.setLocationRelativeTo(null);
@@ -106,19 +108,19 @@ public class Usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        UsuAdmin volver = new UsuAdmin(this.arreglocliente);
+        UsuAdmin volver = new UsuAdmin(this.arreglocliente,this.arregloadmin);
         volver.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarseActionPerformed
-        UsuRegis usuregis = new UsuRegis(this.arreglocliente);
+        UsuRegis usuregis = new UsuRegis(this.arreglocliente,this.arregloadmin);
         usuregis.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistrarseActionPerformed
 
     private void btnLogearseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogearseActionPerformed
-        UsuLog logearse = new UsuLog(arreglocliente);
+        UsuLog logearse = new UsuLog(arreglocliente,arregloadmin);
         logearse.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnLogearseActionPerformed

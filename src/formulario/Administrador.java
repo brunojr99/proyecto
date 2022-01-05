@@ -5,11 +5,14 @@
  */
 package formulario;
 
+import ControladorAdmin.config;
 import Usuario.ArregloCliente;
+import administrador.ArregloAdmin;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.IconUIResource;
 
 /**
@@ -20,10 +23,12 @@ public class Administrador extends javax.swing.JFrame {
     private ImageIcon imagen;
     private Icon icono;
     ArregloCliente arreglocliente;
+    ArregloAdmin arregloadmin;
     /**
      * Creates new form Administrador
      */
-    public Administrador(ArregloCliente arreglocliente) {
+    public Administrador(ArregloCliente arreglocliente, ArregloAdmin arregloadmin) {
+        this.arregloadmin=arregloadmin;
         this.arreglocliente = arreglocliente;
         initComponents();
         this.setLocationRelativeTo(null);
@@ -46,8 +51,8 @@ public class Administrador extends javax.swing.JFrame {
         lblImage1 = new javax.swing.JLabel();
         lblImage2 = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
-        txtContra = new javax.swing.JTextField();
         btnIngresar = new javax.swing.JButton();
+        PswContraseña = new javax.swing.JPasswordField();
         lblImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,13 +82,6 @@ public class Administrador extends javax.swing.JFrame {
         });
         getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 130, -1));
 
-        txtContra.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContraActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 130, -1));
-
         btnIngresar.setText("Ingresar");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +90,13 @@ public class Administrador extends javax.swing.JFrame {
         });
         getContentPane().add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
 
+        PswContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PswContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PswContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 130, -1));
+
         lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/admin.jpg"))); // NOI18N
         getContentPane().add(lblImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 430, 360));
 
@@ -99,12 +104,26 @@ public class Administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        UsuAdmin usuadmin= new UsuAdmin(this.arreglocliente);
-        usuadmin.setVisible(true);
-        this.setVisible(false);
+        TipoAdmin tipoadmin= new TipoAdmin(this.arreglocliente,this.arregloadmin);
+        tipoadmin.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnVolverActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+        String usuario = this.txtUsuario.getText();
+        String contraseña = String.valueOf(this.PswContraseña.getPassword());
+        if(usuario.equalsIgnoreCase(config.loginUser)&&contraseña.equalsIgnoreCase(config.loginPass)){
+        AdminControl admincontrol = new AdminControl(this.arreglocliente,this.arregloadmin);
+        admincontrol.setVisible(true);
+        this.dispose();
+        }
+        else{
+        this.txtUsuario.setText("");
+        this.PswContraseña.setText("");
+        JOptionPane.showMessageDialog(this,"Admin Incorrecto");
+        }            
+        
+        
         
     }//GEN-LAST:event_btnIngresarActionPerformed
 
@@ -112,9 +131,9 @@ public class Administrador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
-    private void txtContraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraActionPerformed
+    private void PswContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PswContraseñaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtContraActionPerformed
+    }//GEN-LAST:event_PswContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,12 +151,12 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField PswContraseña;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblImage1;
     private javax.swing.JLabel lblImage2;
-    private javax.swing.JTextField txtContra;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

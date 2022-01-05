@@ -15,25 +15,26 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author ssant
+ * @author USER
  */
-public class UsuLog extends javax.swing.JFrame {
-    ArregloCliente arreglocliente;
-    ArregloAdmin arregloadmin;
-    private ImageIcon imagen;
-    private Icon icono;  
-/**
-     * Creates new form UsuLog
+public class admin extends javax.swing.JFrame {
+ArregloCliente arreglocliente;
+ArregloAdmin arregloadmin;
+private ImageIcon imagen;
+    private Icon icono;
+    /**
+     * Creates new form admin
      */
-    public UsuLog(ArregloCliente arreglocliente,ArregloAdmin  arregloadmin) {
+    public admin(ArregloCliente arreglocliente,ArregloAdmin arregloadmin) {
         initComponents();
-        this.arreglocliente=arreglocliente;
         this.arregloadmin = arregloadmin;
-        this.pintarImagen(this.Photo, "src/imagen/RemRamp.jpg");
+        this.arreglocliente = arreglocliente;
         this.setLocationRelativeTo(null);
-        this.setTitle("Login");
+        this.setTitle("Login de admin chikito");
         this.pintarImagen(this.lblImage1, "src/imagen/perfildeusuario.jpg");
         this.pintarImagen(this.lblImage2, "src/imagen/contra.png");
+        this.pintarImagen(this.photo, "src/imagen/catKing.png");
+        
     }
 
     /**
@@ -51,7 +52,7 @@ public class UsuLog extends javax.swing.JFrame {
         pswContra = new javax.swing.JPasswordField();
         lblImage1 = new javax.swing.JLabel();
         lblImage2 = new javax.swing.JLabel();
-        Photo = new javax.swing.JLabel();
+        photo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -61,7 +62,7 @@ public class UsuLog extends javax.swing.JFrame {
                 txtUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 160, -1));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 290, 153, -1));
 
         btnVolver.setText("volver");
         btnVolver.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +70,7 @@ public class UsuLog extends javax.swing.JFrame {
                 btnVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 90, 40));
+        getContentPane().add(btnVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, 110, 30));
 
         btnLogin.setText("Logearse");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -77,18 +78,18 @@ public class UsuLog extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 90, 40));
-        getContentPane().add(pswContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, 160, -1));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 110, 30));
+        getContentPane().add(pswContra, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 350, 150, -1));
 
         lblImage1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblImage1.setOpaque(true);
-        getContentPane().add(lblImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 30, 30));
+        getContentPane().add(lblImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 30, 30));
 
         lblImage2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagen/perfildeusuario.jpg"))); // NOI18N
         lblImage2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         lblImage2.setOpaque(true);
-        getContentPane().add(lblImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 30, 30));
-        getContentPane().add(Photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 460, 390));
+        getContentPane().add(lblImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 30, 30));
+        getContentPane().add(photo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -97,29 +98,30 @@ public class UsuLog extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
+    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+        TipoAdmin tipoadmin = new TipoAdmin(this.arreglocliente,this.arregloadmin);
+        tipoadmin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnVolverActionPerformed
+
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-       String usuario, contraseña;
-       
-       usuario = this.txtUsuario.getText();
-       contraseña = String.valueOf(this.pswContra.getPassword());
-       
-        if(arreglocliente.VerificaLogeo(usuario,contraseña)){
-           PerUsu ingresar = new PerUsu(this.arreglocliente,this.arregloadmin);
-           JOptionPane.showMessageDialog(this, "Hola");
-           ingresar.setVisible(true);
-           this.setVisible(false);
-           
-       }else{
-           JOptionPane.showMessageDialog(this, "Sigue intentando compa");
-       }
+        String usuario, contraseña;
+
+        usuario = this.txtUsuario.getText();
+        contraseña = String.valueOf(this.pswContra.getPassword());
+
+        if(arregloadmin.VerificaLogeo(usuario,contraseña)){
+            adminCon ingresar = new adminCon(this.arreglocliente,this.arregloadmin);
+            JOptionPane.showMessageDialog(this, "Hola");
+            ingresar.setVisible(true);
+            this.dispose();
+
+        }else{
+            JOptionPane.showMessageDialog(this, "Keep trying");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
-        Usuario volver = new Usuario(this.arreglocliente,this.arregloadmin);
-        volver.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_btnVolverActionPerformed
-private void pintarImagen(JLabel lbl, String ruta){
+    private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(
                 lbl.getWidth(), 
@@ -134,11 +136,11 @@ private void pintarImagen(JLabel lbl, String ruta){
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Photo;
     public javax.swing.JButton btnLogin;
     public javax.swing.JButton btnVolver;
     private javax.swing.JLabel lblImage1;
     private javax.swing.JLabel lblImage2;
+    private javax.swing.JLabel photo;
     private javax.swing.JPasswordField pswContra;
     public javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
