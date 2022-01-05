@@ -20,10 +20,11 @@ public class AdminControl extends javax.swing.JFrame {
 ArregloAdmin arregloadmin;
 private ImageIcon imagen;
     private Icon icono; 
+    ArregloCliente arreglocliente;
     /**
      * Creates new form AdminControl
      */
-    ArregloCliente arreglocliente;
+    
     public AdminControl(ArregloCliente arreglocliente,ArregloAdmin arregloadmin) {
         initComponents();
         this.arregloadmin = arregloadmin;

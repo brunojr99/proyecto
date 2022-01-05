@@ -21,6 +21,7 @@ public class Usuario extends javax.swing.JFrame {
     public Usuario(ArregloCliente arreglocliente,ArregloAdmin arregloadmin) {
         initComponents();
         this.arreglocliente = arreglocliente;
+        this.arregloadmin = arregloadmin;
         this.setLocationRelativeTo(null);
         this.setTitle("Usuario");
         this.setResizable(false);//desactiva la opcion de modificar el tamaño una vez ejecutado el JFrame
